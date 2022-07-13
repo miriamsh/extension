@@ -11,7 +11,7 @@
 	],
 	"activationEvents": [
 		"onCommand:helloWorld.helloWorld",
-		"onView:package-subscriptions" 
+		"onView:package-subscriptions"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -33,7 +33,7 @@
 				{
 					"id": "package-subscriptions",
 					"name": "Subscriptions"
-   				},
+				},
 				{
 					"id": "package-outline",
 					"name": "Outline"
@@ -63,6 +63,7 @@
 		"typescript": "^4.7.4"
 	},
 	"dependencies": {
+		"axios": "^0.27.2",
 		"jsonc-parser": "^3.1.0"
 	}
 }
