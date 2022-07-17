@@ -15,16 +15,32 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": {
-			"command": "helloWorld.helloWorld",
-			"title": "Hello World"
-		},
+		"commands": [
+			{
+				"command": "helloWorld.helloWorld",
+				"title": "Hello World"
+			},
+			{
+				"command": "azure-account.askForLogin",
+				"title": "LogIn"
+			},
+			{
+				"command": "package-subscriptions.refreshEntry",
+				"title": "Refresh",
+				"icon": "$(extensions-refresh)"
+			},
+			{
+				"command": "package-subscriptions.addEntry",
+				"title": "Add",
+				"icon": "$(diff-review-insert)"
+			}
+		],
 		"viewsContainers": {
 			"activitybar": [
 				{
 					"id": "package-explorer",
 					"title": "Package Explorer",
-					"icon": "$(cloud)"
+					"icon": "$(key)"
 				}
 			]
 		},
@@ -37,6 +53,18 @@
 				{
 					"id": "package-outline",
 					"name": "Outline"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "package-subscriptions.refreshEntry",
+					"group": "navigation"
+				},
+				{
+					"command": "package-subscriptions.addEntry",
+					"group": "navigation"
 				}
 			]
 		}
@@ -63,7 +91,13 @@
 		"typescript": "^4.7.4"
 	},
 	"dependencies": {
+		"@azure/arm-subscriptions": "^5.0.1",
+		"@azure/ms-rest-azure-env": "^2.0.0",
+		"@azure/ms-rest-nodeauth": "^3.1.1",
 		"axios": "^0.27.2",
 		"jsonc-parser": "^3.1.0"
-	}
+	},
+	"extensionDependencies": [
+		"ms-vscode.azure-account"
+	]
 }
